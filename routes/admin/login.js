@@ -17,8 +17,13 @@ router.post('/', async function(req,res,next){
         var password = req.body.password; // 1234
 
         var data = await usuariosModel.getUserAndPassword(usuario,password);
+        // var data = select* from usuarioas where usuario = 'soledad' and password = md5(1234)
+        //select trae * = columna id, usuario, password
 
-        if( data != undefined){
+
+        if(data != undefined){
+            req.session.id_usuario = data.id;
+            req.session.nombre = data.usuario;
             res.redirect('/admin/novedades')
         } else{
             res.render('admin/login',{
