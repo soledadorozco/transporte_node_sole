@@ -13,4 +13,13 @@ router.get('/', async function(req, res, next) {
     });  // view/admin/login.hbs)
 });  //cierro get
 
+//=> o function
+// esto sirve para mostrar el alta las novedades
+
+router.get('/agregar', (req,res, next) =>{
+    res.render('admin/agregar',{
+        layout: 'admin/layout'
+    })
+})
+
     module.exports = router;
