@@ -13,7 +13,7 @@ async function insertNovedades(obj){
 
     }catch(error){
         console.log(error);
-        throw error;
+        throw error; //este renglón va si o si
     }
 }
 module.exports = { getNovedades, insertNovedades }
