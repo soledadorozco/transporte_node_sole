@@ -50,8 +50,19 @@ router.post('/agregar', async(req,res,next) =>{
 router.get('/eliminar/:id', async (req,res,next) =>{
     // console.log(req.params.id);
     var id = req.params.id;
-    await novedadesModel.deleteNovedadById(id);
+    await novedadesModel.deleteNovedadesByID(id);
     res.redirect('/admin/novedades');
+})
+
+/*vista modificar (form) + los datos de campos para modificar */
+router.get('/modificar/:id', async(req,res,next) =>{
+    var id = req.params.id;
+    var novedad = await novedadesModel.getNovedadesByID(id);
+    res.render('admin/modificar',{
+        layout:'admin/layout',
+        novedad
+    })
+
 })
 
     module.exports = router;
