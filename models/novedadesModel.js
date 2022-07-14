@@ -16,4 +16,9 @@ async function insertNovedades(obj){
         throw error; //este renglón va si o si
     }
 }
-module.exports = { getNovedades, insertNovedades }
+async function deleteNovedadById(id){
+    var query = 'delete form novedades where id= ?';
+    var rows = await pool.query(query,[id]);
+    return rows;
+}
+module.exports = { getNovedades, insertNovedades, deleteNovedadById }
