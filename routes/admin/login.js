@@ -8,6 +8,14 @@ router.get('/', function(req, res, next) {
     });  // view/admin/login.hbs)
 })  
 
+router.get('/logout', function(req, res, next) {
+    req.session.destroy();  // destruye el id, nombre..
+    res.render('admin/login' ,{
+        layout:'admin/layout'
+ })
+})  
+
+
 router.post('/', async function(req,res,next){
 
     try{
